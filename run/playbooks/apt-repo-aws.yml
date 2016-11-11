@@ -1,0 +1,8 @@
+---
+
+- hosts: aws
+  remote_user: ubuntu
+  become: yes
+
+  roles:
+  - { role: ansible-apt-repo, apt_mirror: 172.30.224.46}

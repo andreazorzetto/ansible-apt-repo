@@ -1,0 +1,17 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: andreazorzetto
+  description: aptrepo for Linux
+  company: "Wonga"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 1.9
+  platforms:
+    - name: Ubuntu
+      versions:
+      - all
+  galaxy_tags:
+    - development
+    - system
+    - apt

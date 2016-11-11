@@ -1,0 +1,12 @@
+{% for repo in repos %}
+# {{ repo.title }}
+{% for distro in repo.distro %}
+deb ftp://{{ apt_mirror }}/{{ repo.title }} {{ distro }}{% for component in repo.components %} {{ component }}{% endfor %}
+
+{% if repo.source %}
+deb-src ftp://{{ apt_mirror }}/{{ repo.title }} {{ distro }}{% for component in repo.components %} {{ component }}{% endfor %}
+
+{% endif %}
+{% endfor %}
+
+{% endfor %}

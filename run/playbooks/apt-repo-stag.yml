@@ -1,0 +1,8 @@
+---
+
+- hosts: stag
+  remote_user: ubuntumaster
+  become: yes
+
+  roles:
+  - { role: ansible-apt-repo, apt_mirror: 192.168.34.253}

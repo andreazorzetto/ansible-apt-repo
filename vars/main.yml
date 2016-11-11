@@ -1,0 +1,119 @@
+---
+repos:
+
+  - title: ubuntu
+    source: true
+    distro:
+      - trusty
+      - trusty-security
+      - trusty-updates
+    components:
+      - main
+      - restricted
+      - universe
+      - multiverse
+
+  - title: ondrej
+    source: true
+    distro:
+      - trusty
+    components:
+      - main
+
+  - title: grafana
+    source: false
+    distro:
+      - wheezy
+    components:
+      - main
+
+  - title: influxdata
+    source: false
+    distro:
+      - trusty
+    components:
+      - stable
+
+  - title: openjdk
+    source: true
+    distro:
+      - trusty
+    components:
+      - main
+
+  - title: jenkins
+    source: false
+    distro:
+      - binary/
+    components:
+      -
+
+  - title: erlang
+    source: false
+    distro:
+      - trusty
+    components:
+      - contrib
+
+  - title: rabbitmq
+    source: false
+    distro:
+      - testing
+    components:
+      - main
+
+  - title: filebeats
+    source: false
+    distro:
+      - stable
+    components:
+      - main
+
+  - title: logstash
+    source: false
+    distro:
+      - stable
+    components:
+      - main
+
+  - title: kibana
+    source: false
+    distro:
+      - stable
+    components:
+      - main
+
+  - title: elasticsearch
+    source: false
+    distro:
+      - stable
+    components:
+      - main
+
+  - title: zabbix
+    source: true
+    distro:
+      - trusty
+    components:
+      - main
+
+  - title: ansible
+    source: true
+    distro:
+      - trusty
+    components:
+      - main
+
+  - title: haproxy
+    source: true
+    distro:
+      - trusty
+    components:
+      - main
+
+  - title: keepalive
+    source: true
+    distro:
+      - trusty
+    components:
+      - main

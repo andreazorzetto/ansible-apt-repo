@@ -1,0 +1,38 @@
+---
+##################################################
+# put sources.list in place with templates
+- name: Place sources.list configuration
+  template:
+    src: sources.list.j2
+    dest: /etc/apt/sources.list
+    backup: yes
+
+##################################################
+# download keys (the apt_key or get_url modules fail under certain circumstances)
+- name: download apt keys
+  command: curl ftp://{{ apt_mirror }}/keys/{{ item.title }}.key -o /tmp/{{ item.title }}.key
+  with_items: "{{ repos }}"
+
+##################################################
+# install apt keys
+- name: install apt keys
+  apt_key: file=/tmp/{{ item.title }}.key state=present
+  with_items: "{{ repos }}"
+
+##################################################
+# we need to set up proxy server for caching to work in the DC
+- name: set up apt proxy file
+  template:
+    src: apt.conf.j2
+    dest: /etc/apt/apt.conf
+    mode: 0644
+    owner: root
+    group: root
+
+##################################################
+# update apt cache
+- name: update cache
+  apt: update_cache=yes
+  when: run_cache_update
+ 
+

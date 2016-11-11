@@ -1,0 +1,8 @@
+---
+
+- hosts: preprod
+  remote_user: ubuntumaster
+  become: yes
+
+  roles:
+  - { role: ansible-apt-repo, apt_mirror: 10.30.4.3}
