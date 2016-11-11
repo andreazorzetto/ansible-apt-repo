@@ -3,15 +3,16 @@ dependencies: []
 
 galaxy_info:
   author: andreazorzetto
-  description: aptrepo for Linux
-  company: "Wonga"
+  description: aptmirror client for Ubuntu
   license: "license (BSD, MIT)"
   min_ansible_version: 1.9
   platforms:
     - name: Ubuntu
       versions:
-      - all
+      - trusty
   galaxy_tags:
-    - development
-    - system
     - apt
+    - system
+    - aptmirror
+    - repositories
+    - software
