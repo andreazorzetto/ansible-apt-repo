@@ -1,50 +1,50 @@
-apt-repo
+Ansible APT Repo role
 =================
 
-Configure internal apt mirror for ubuntu trusty (14.04)
-Install the extra repos:
-- php5.6
-- grafana
-- influxdb
-- openjdk for all java in ubuntu 14
+Configure an ubuntu server as a client to point to aptmirror internal repository, previously set up with [ansible aptmirror role](https://galaxy.ansible.com/andreazorzetto/Ubuntu-Aptmirror/).
 
-Install extra repo keys
-Update cache
+Tasks:
+-----------------
+- Install extra repo keys
+- Update cache
 
 
 Role Variables
 -----------------
 
 
-apt_mirror
+```apt_mirror``` with the aptmirror server ip address
 
+A list of repositories exported on the apt mirror server needs to be created like the example one available in the ```vars``` of this role.
 
-How to RUN the role
------------------
+Example of values:
 
+```
+repos:
 
-__for AWS servers__
-```
-ansible-playbook -i run/inventories/aws run/playbooks/apt-repo-aws.yml
-```
+  - title: ubuntu
+    source: true
+    distro:
+      - trusty
+      - trusty-security
+      - trusty-updates
+    components:
+      - main
+      - restricted
+      - universe
+      - multiverse
 
-__for Staging servers__
-```
-ansible-playbook -i run/inventories/stag run/playbooks/apt-repo-stag.yml
-```
+  - title: ondrej
+    source: true
+    distro:
+      - trusty
+    components:
+      - main
 
-__for Pre Production servers__
-```
-ansible-playbook -i run/inventories/preprod run/playbooks/apt-repo-preprod.yml
-```
-
-__for Production servers__
-```
-ansible-playbook -i run/inventories/prod run/playbooks/apt-repo-prod.yml
-```
-
-__for Vagrant tests__ (password: vagrant)
-```
-vagrant up
-ansible-playbook -i run/inventories/vagrant run/playbooks/apt-repo-vagrant.yml -k
+  - title: grafana
+    source: false
+    distro:
+      - wheezy
+    components:
+      - main
 ```

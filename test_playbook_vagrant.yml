@@ -5,4 +5,4 @@
   become: yes
 
   roles:
-  - { role: ansible-apt-repo, apt_mirror: 172.30.224.46}
+  - { role: ansible-apt-repo, apt_mirror: 10.0.0.1}

@@ -1,8 +1,0 @@
----
-
-- hosts: prod
-  remote_user: ubuntumaster
-  become: yes
-
-  roles:
-  - { role: ansible-apt-repo, apt_mirror: 172.16.0.32}
